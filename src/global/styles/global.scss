@@ -1,0 +1,38 @@
+/* globals.css */
+
+:root {
+  --font-adventure: var(--font-adventure);
+  --font-mabryPro: var(--font-mabryPro);
+  --font-soyuz: var(--font-soyuz);
+
+  --color-blue: #0046fe;
+  --color-black: #141414;
+  --color-dark-blue: #161b44;
+  --color-blue-gray: #344054;
+  --color-dark-gray: #1f1f1f;
+  --color-white: #fff;
+}
+
+/* Устанавливаем один из шрифтов по умолчанию для body */
+body {
+  font-family: var(--font-mabryPro), sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.3em;
+  color: var(--color-black);
+}
+
+/* Использование разных шрифтов для других элементов */
+.heading {
+  font-family: var(--font-adventure), sans-serif;
+}
+
+.subheading {
+  // font-family: var(--font-soyuz), sans-serif;
+}
+
+.container {
+  max-width: 1230px;
+  padding: 0 15px;
+  margin: 0 auto;
+}

@@ -1,0 +1,153 @@
+.header {
+  position: fixed;
+  top: 35px;
+  left: 0;
+  right: 0;
+  padding-top: 50px;
+  transition: all 0.5s ease-in;
+
+  .list {
+    gap: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .headerNav {
+    gap: 40px;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+  }
+
+  .logoWrapper {
+    width: 89px;
+    height: 59px;
+    overflow: hidden;
+
+    &img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .link {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: var(--color-white);
+  }
+
+  .burgerBtn {
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(2px);
+    display: none;
+
+    & span {
+      display: inline-block;
+      position: relative;
+      top: -6px;
+      width: 30px;
+      height: 3px;
+      background-color: var(--color-white);
+      border-radius: 2px;
+      transition: all 0.3s;
+
+      &::after,
+      &::before {
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 3px;
+        border-radius: 2px;
+        left: 0;
+        background-color: var(--color-white);
+        transition: all 0.3s;
+      }
+
+      &::after {
+        transform: translateY(-8px);
+      }
+
+      &::before {
+        transform: translateY(8px);
+      }
+    }
+  }
+
+  .burgerActive {
+    & span {
+      width: 0;
+
+      &::after {
+        transform: rotate(-45deg) translateX(-10px) translateY(-10px);
+      }
+
+      &::before {
+        transform: rotate(45deg) translateX(-10px) translateY(10px);
+      }
+    }
+  }
+}
+
+.scrolled {
+  z-index: 99;
+  padding: 15px 0;
+  top: 0;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 70, 254);
+  transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+}
+
+@media (max-width: 1400px) {
+  .header {
+    .headerNav {
+      padding: 0 60px 0 30px;
+      justify-content: space-between;
+    }
+    .list {
+      gap: 15px;
+    }
+
+    .link {
+      font-weight: 400;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .header {
+    .link {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 995px) {
+  .header {
+    .list {
+      display: none;
+    }
+    .burgerBtn {
+      display: block;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    top: 0;
+    padding-top: 20px;
+
+    .headerNav {
+      padding: 0;
+    }
+  }
+}

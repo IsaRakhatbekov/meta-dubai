@@ -1,16 +1,44 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
+import "@/src/global/styles/_reset.scss";
+import "@/src/global/styles/global.scss";
+
+const adventure = localFont({
+  src: "./fonts/AdventureIndianaJones-Regular.woff",
+  variable: "--font-adventure",
   weight: "100 900",
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const mabryPro = localFont({
+  src: [
+    {
+      path: "./fonts/MabryPro-Black.woff",
+      weight: "900",
+      style: "normal",
+    },
+    {
+      path: "./fonts/MabryPro-Bold.woff",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "./fonts/MabryPro-Medium.woff",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/MabryPro-Regular.woff",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-mabryPro",
+  weight: "400 500 700 900",
+});
+const soyuzFont = localFont({
+  src: "./fonts/SoyuzGrotesk-Bold.woff",
+  variable: "--font-soyuz",
+  weight: "700",
 });
 
 export const metadata: Metadata = {
@@ -25,7 +53,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body
+        className={`${adventure.variable} ${mabryPro.variable} ${soyuzFont.variable}`}
+      >
         {children}
       </body>
     </html>

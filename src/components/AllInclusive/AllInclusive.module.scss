@@ -1,0 +1,204 @@
+.allInclusive {
+  padding: 300px 0;
+  .title {
+    font-family: var(--font-soyuz);
+    font-weight: 700;
+    font-size: 68px;
+    line-height: 1.2em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--color-black);
+    margin-bottom: 35px;
+  }
+
+  .text {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1.4em;
+    text-transform: capitalize;
+    text-align: left;
+    color: #000;
+  }
+
+  .list {
+    margin-bottom: 35px;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .item {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+
+    & span {
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 140%;
+      color: #000;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: -6px;
+        width: 50px;
+        height: 40px;
+        background: url("../../../public/images/allIn.png") no-repeat
+          center/contain;
+      }
+    }
+  }
+
+  // .wrapper {
+  //   position: relative;
+  // }
+
+  // .images {
+  //   position: absolute;
+  //   border-radius: 11px;
+  //   width: 399px;
+  //   height: 249px;
+  //   overflow: hidden;
+  //   z-index: 10;
+
+  //   &:nth-child(1) {
+  //     background-color: #ccc;
+  //     top: -60%;
+  //     left: -10%;
+  //   }
+  //   &:nth-child(2) {
+  //     background-color: lightcoral;
+  //     top: -60%;
+  //     left: 25%;
+  //   }
+  //   &:nth-child(3) {
+  //     background-color: orange;
+  //     top: -60%;
+  //     right: -10%;
+  //   }
+  //   &:nth-child(4) {
+  //     background-color: green;
+  //     bottom: -60%;
+  //     right: -10%;
+  //   }
+  //   &:nth-child(5) {
+  //     background-color: red;
+  //     bottom: -60%;
+  //     right: 30%;
+  //   }
+  //   &:nth-child(6) {
+  //     bottom: -60%;
+  //     left: -10%;
+  //     background-color: blue;
+  //   }
+  // }
+
+  .subtitle {
+    font-family: var(--font-adventure);
+    font-weight: 400;
+    font-size: 38px;
+    line-height: 130%;
+    text-align: center;
+    color: var(--color-blue);
+    max-width: 572px;
+    margin: 0 auto;
+  }
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.images {
+  position: absolute;
+  border-radius: 11px;
+  width: 320px;
+  height: 200px;
+  overflow: hidden;
+  z-index: 10;
+  transition: all 0.7s ease-in-out;
+}
+.images:nth-child(1) {
+  z-index: 15;
+  transform: translate(-100px, -100px) rotate(20deg);
+  background: url("../../../public/images/allIn/red.png") no-repeat center/cover;
+}
+
+.images:nth-child(2) {
+  z-index: 14;
+  transform: translate(100px, -100px) rotate(-15deg);
+  background: url("../../../public/images/allIn/food.png") no-repeat
+    center/cover;
+}
+
+.images:nth-child(3) {
+  z-index: 13;
+  transform: translate(-150px, 0px) rotate(22deg);
+  background: url("../../../public/images/allIn/bed.png") no-repeat center/cover;
+}
+
+.images:nth-child(4) {
+  z-index: 12;
+  transform: translateX(100px) rotate(0);
+  background: url("../../../public/images/allIn/people.png") no-repeat
+    center/cover;
+}
+
+.images:nth-child(5) {
+  z-index: 11;
+  transform: translate(-150px, 100px) rotate(-15deg);
+  background: url("../../../public/images/allIn/boy.png") no-repeat center/cover;
+}
+
+.images:nth-child(6) {
+  z-index: 10;
+  transform: translate(100px, 100px) rotate(25deg) rotate(0);
+  background: url("../../../public/images/allIn/doctor.png") no-repeat
+    center/cover;
+}
+// ------------------------------------------------------------------------------------
+.isAnimated:nth-child(1) {
+  transform: translate(-300px, -310px) rotate(20deg);
+  background: url("../../../public/images/allIn/red.png") no-repeat center/cover;
+}
+
+.isAnimated:nth-child(2) {
+  transform: translate(310px, -310px) rotate(-20deg);
+  background: url("../../../public/images/allIn/food.png") no-repeat
+    center/cover;
+}
+
+.isAnimated:nth-child(3) {
+  transform: translate(-450px, 0px) rotate(19deg);
+  background: url("../../../public/images/allIn/bed.png") no-repeat center/cover;
+}
+
+.isAnimated:nth-child(4) {
+  transform: translateX(500px) rotate(0);
+  background: url("../../../public/images/allIn/people.png") no-repeat
+    center/cover;
+}
+
+.isAnimated:nth-child(5) {
+  transform: translate(-220px, 350px) rotate(-18deg);
+  background: url("../../../public/images/allIn/boy.png") no-repeat center/cover;
+}
+
+.isAnimated:nth-child(6) {
+  transform: translate(300px, 300px) rotate(-10deg);
+  background: url("../../../public/images/allIn/doctor.png") no-repeat
+    center/cover;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
