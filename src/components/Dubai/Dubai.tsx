@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { motion, useAnimation, useScroll, useTransform } from "framer-motion";
 import styles from "./Dubai.module.scss";
+import lax from "lax.js";
 
 export const Dubai = () => {
   const [showLightDubai, setShowLightDubai] = useState(false);
@@ -36,15 +37,38 @@ export const Dubai = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [controls, showLightDubai, lightDubaiCompleted, showNightDubai]);
 
+  useEffect(() => {
+    // Инициализация lax.js
+    lax.init();
+
+    // Добавление драйвера скроллинга
+    lax.addDriver("scrollY", () => window.scrollY);
+
+    // Ограничение анимации только на элементы внутри секции Dubai
+    lax.addElements(`.${styles.dubai} .${styles.laxItem}`, {
+      scrollY: {
+        scale: [
+          ["elInY", "elCenterY", "elOutY"], // Диапазоны позиции элемента
+          [1, 10, 1], // Масштаб от 1 до 10 и обратно
+        ],
+      },
+    });
+
+    // Удаление драйвера при размонтировании компонента
+    return () => {
+      lax.removeDriver("scrollY");
+    };
+  }, []);
+
   return (
-    <section className={styles.dubai}>
+    <section className={`${styles.dubai} dubai-section`}>
       {/* Список */}
       <ul className={styles.list}>
         <li className={styles.items}></li>
         <li className={styles.items}></li>
         <li className={styles.items}></li>
         <li className={styles.items}></li>
-        <li className={styles.items}>DUBAI</li>
+        <li className={`${styles.items} ${styles.laxItem}`}>DUBAI</li>
         <li className={styles.items}></li>
         <li className={styles.items}></li>
         <li className={styles.items}></li>
