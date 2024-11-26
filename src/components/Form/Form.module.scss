@@ -24,6 +24,7 @@
     font-family: var(--font-soyuz);
     font-weight: 700;
     font-size: 42px;
+    font-size: calc(24px + 18 * (100vw / 1440));
     line-height: 1.2em;
     color: #344054;
     margin-bottom: 25px;
@@ -31,6 +32,7 @@
 
   .forward {
     position: relative;
+    margin-bottom: 300px;
 
     &::after {
       content: "";
@@ -56,10 +58,6 @@
       font-size: 18px;
       line-height: 1.3em;
       color: #344054;
-    }
-
-    &:last-child {
-      margin-bottom: 300px;
     }
   }
 
@@ -162,7 +160,6 @@
 
 .customCheckbox {
   display: flex;
-  align-items: center;
   cursor: pointer;
   font-size: 16px;
   color: #333;
@@ -179,6 +176,7 @@
   height: 20px;
   position: relative;
   margin-right: 15px;
+  margin-top: 5px;
   transition: background-color 0.3s, border-color 0.3s;
 }
 
@@ -218,6 +216,96 @@
         background: url("../../../public/images/interesting.svg") no-repeat
           center/cover;
       }
+    }
+  }
+}
+
+@media (max-width: 1300px) {
+  .test {
+    .testTitle {
+      font-size: 80px;
+    }
+    .forward {
+      &::after {
+        left: 50px;
+        width: 234px;
+        height: 90px;
+      }
+    }
+
+    .investments {
+      &::after {
+        width: 208px;
+        height: 74px;
+        top: -90px;
+        right: 100px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .test {
+    .forward {
+      margin-bottom: 200px;
+    }
+    .testTitle {
+      font-size: 57px;
+    }
+    .testSubtitle {
+      margin-bottom: 300px;
+    }
+
+    .forward {
+      &::after {
+        top: -80px;
+        left: 27px;
+        width: 141px;
+        height: 57px;
+      }
+    }
+    .investments {
+      &::after {
+        width: 170px;
+        height: 59px;
+        top: -68px;
+        right: 70px;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .test {
+    .forward {
+      margin-bottom: 132px;
+    }
+    .testTitle {
+      font-size: 45px;
+    }
+    .testSubtitle {
+      font-size: 18px;
+    }
+
+    .checkbox {
+      margin-top: 0;
+      background-color: var(--color-white);
+    }
+
+    .customCheckbox {
+      border-radius: 10px;
+      padding: 5px 10px;
+      align-items: center;
+      line-height: 1.3em;
+      background-color: #f4f4f4;
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .test {
+    .testTitle {
+      font-size: 34px;
     }
   }
 }

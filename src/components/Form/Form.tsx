@@ -93,7 +93,7 @@ export const Form = () => {
           </div>
         </div>
         {/* ------------------------------------------------ */}
-        <div className={styles.fromWrapper}>
+        {/* <div className={styles.fromWrapper}>
           <h2 className={styles.formTitle}>Бесплатная консультация)</h2>
           <h5 className={styles.formSubtitle}>
             Оставьте ваши данные и мы проконсультируем вас по всем вопросам
@@ -117,7 +117,7 @@ export const Form = () => {
             </div>
             <button className={styles.formBtn}>Отправить</button>
           </form>
-        </div>
+        </div> */}
       </div>
     </section>
   );

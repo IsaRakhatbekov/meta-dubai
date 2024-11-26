@@ -3,7 +3,7 @@ import { useRef, useEffect, useState } from "react";
 import { BestChoice } from "../components/BestChoice/BestChoice";
 // import { Dubai } from "../components/Dubai/Dubai";
 import { Footer } from "../components/Footer/Footer";
-// import { Form } from "../components/Form/Form";
+import { Form } from "../components/Form/Form";
 import { Header } from "../components/Header/Header";
 import { Hero } from "../components/Hero/Hero";
 import { IsThisMine } from "../components/IsThisMine/IsThisMine";
@@ -53,7 +53,7 @@ export default function Home() {
         <Сareer />
         {/* <Dubai /> */}
         <AllInclusive />
-        {/* <Form /> */}
+        <Form />
       </main>
       <Footer />
     </div>
