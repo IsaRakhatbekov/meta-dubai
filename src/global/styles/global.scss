@@ -36,3 +36,18 @@ body {
   padding: 0 15px;
   margin: 0 auto;
 }
+
+a,
+button {
+  outline: transparent;
+  border: transparent;
+
+  &:active {
+    outline: 1px solid var(--color-blue);
+    border: 1px solid var(--color-blue);
+  }
+  &:focus {
+    outline: 1px solid var(--color-blue);
+    border: 1px solid var(--color-blue);
+  }
+}

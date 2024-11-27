@@ -81,6 +81,45 @@ export const Header = () => {
           >
             <span></span>
           </button>
+          <div className={`${styles.menu} ${burger ? styles.menuActive : ""}`}>
+            <ul className={styles.list}>
+              <li className={styles.item}>
+                <a className={styles.link} href="#">
+                  Главная
+                </a>
+              </li>
+              <li className={styles.item}>
+                <a className={styles.link} href="#">
+                  Преимущества
+                </a>
+              </li>
+              <li className={styles.item}>
+                <a className={styles.link} href="#">
+                  Кому подходит
+                </a>
+              </li>
+              <li className={styles.item}>
+                <a className={styles.link} href="#">
+                  Почему мы
+                </a>
+              </li>
+              <li className={styles.item}>
+                <a className={styles.link} href="#">
+                  Карьера
+                </a>
+              </li>
+              <li className={styles.item}>
+                <a className={styles.link} href="#">
+                  Дубай
+                </a>
+              </li>
+              <li className={styles.item}>
+                <a className={styles.link} href="#">
+                  "Всё включено"
+                </a>
+              </li>
+            </ul>
+          </div>
         </nav>
       </div>
     </header>

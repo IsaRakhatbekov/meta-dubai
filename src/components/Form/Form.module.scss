@@ -82,7 +82,7 @@
     position: relative;
     width: 100%;
     max-width: 700px;
-    margin: 0 auto;
+    margin: 300px auto 0;
 
     &::after {
       content: "";
@@ -100,6 +100,7 @@
     font-family: var(--font-soyuz);
     font-weight: 700;
     font-size: 68px;
+    font-size: calc(24px + 45 * (100vw / 1440));
     line-height: 1.2em;
     text-transform: uppercase;
     color: #1f1f1f;
@@ -129,10 +130,25 @@
       border: 1px solid #d0d5dd;
       border-radius: 8px;
       padding: 12px 16px;
-      width: 700px;
+      width: 100%;
+      max-width: 700px;
       height: 48px;
       box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
       background: #fff;
+      font-family: var(--third-family);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      color: #667085;
+
+      &:active {
+        outline: 1px solid var(--color-blue);
+        outline: 1px solid var(--color-blue);
+      }
+      &:focus {
+        outline: 1px solid var(--color-blue);
+        border: 1px solid var(--color-blue);
+      }
     }
   }
 
@@ -149,6 +165,12 @@
 
     &:active {
       opacity: 0.5;
+      outline: 1px solid var(--color-blue);
+      outline: 1px solid var(--color-blue);
+    }
+    &:focus {
+      outline: 1px solid var(--color-blue);
+      border: 1px solid var(--color-blue);
     }
   }
 }
@@ -244,6 +266,21 @@
   }
 }
 
+@media (max-width: 991px) {
+  .test {
+    .fromWrapper {
+      &::after {
+        content: "";
+        position: absolute;
+        width: 200px;
+        height: 81px;
+        top: -90px;
+        left: -4px;
+      }
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .test {
     .forward {
@@ -277,6 +314,18 @@
 
 @media (max-width: 500px) {
   .test {
+    .fromWrapper {
+      &::after {
+        content: "";
+        position: absolute;
+        width: 150px;
+        height: 53px;
+        top: -60px;
+        left: -4px;
+        background: url("../../../public/images/question.svg") no-repeat
+          center/contain;
+      }
+    }
     .forward {
       margin-bottom: 132px;
     }
@@ -285,6 +334,10 @@
     }
     .testSubtitle {
       font-size: 18px;
+    }
+
+    .fromWrapper {
+      margin: 170px auto 0;
     }
 
     .checkbox {
@@ -298,6 +351,10 @@
       align-items: center;
       line-height: 1.3em;
       background-color: #f4f4f4;
+    }
+
+    .formInpWrapper {
+      margin-bottom: 25px;
     }
   }
 }
