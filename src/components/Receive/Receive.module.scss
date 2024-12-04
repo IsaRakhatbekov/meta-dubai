@@ -4,7 +4,6 @@
   .receiveTitle {
     font-family: var(--font-soyuz);
     font-weight: 700;
-    font-size: 72px;
     line-height: 115%;
     color: var(--color-dark-gray);
     max-width: 809px;
@@ -38,6 +37,20 @@
     gap: 35px;
     display: flex;
     align-items: flex-start;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: calc(100% - 59px);
+      width: 2px;
+      height: 144px;
+      background-color: var(--color-black);
+    }
+    &.receiveItemIntersecting::after {
+      background-color: var(--color-white);
+    }
   }
 
   .receiveText {
@@ -58,18 +71,34 @@
 
   .receiveBottom {
     padding: 150px 0 200px 0;
-    background: url("../../../public/images/dubaiCity.png") no-repeat
-      center/cover;
+    background-color: var(--color-dark-gray);
+  }
+
+  .bottomWrapper {
+    margin: 0 auto 0 300px;
+    max-width: 865px;
+  }
+
+  .bottomTitle {
+    font-family: var(--font-adventure);
+    font-weight: 400;
+    font-size: 61px;
+    font-size: calc(30px + 31 * (100vw / 1440));
+    line-height: 131%;
+    color: #fff;
   }
 
   .bottomText {
-    font-family: var(--second-family);
+    font-family: var(--font-soyuz);
     font-weight: 700;
-    line-height: 1.2em;
-    color: var(--color-blue);
-    max-width: 865px;
+    font-size: 48px;
+    line-height: 120%;
+    color: #fff;
     font-size: calc(24px + 14 * (100vw / 1440));
-    margin: 0 auto;
+
+    & span {
+      color: var(--color-orange);
+    }
   }
 }
 
@@ -101,6 +130,14 @@
       gap: 60px;
     }
 
+    .receiveItem {
+      &::after {
+        top: calc(75% - -2px);
+        width: 2px;
+        height: 49px;
+      }
+    }
+
     .receiveText {
       font-size: 30px;
     }
@@ -127,6 +164,11 @@
   .receive {
     .dubaiTower {
       display: none;
+    }
+
+    .bottomWrapper {
+      margin: 0 auto;
+      max-width: 400px;
     }
 
     .receiveList {

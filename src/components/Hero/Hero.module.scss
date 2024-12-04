@@ -50,6 +50,10 @@
     color: #fff;
     margin-bottom: 25px;
     font-family: var(--font-soyuz), sans-serif;
+
+    & span {
+      color: var(--color-orange);
+    }
   }
 
   .heroText {

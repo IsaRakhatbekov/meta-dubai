@@ -1,6 +1,11 @@
 .mine {
   padding: 50px 0;
 
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .mineContainer {
     padding: 0 30px;
   }
@@ -17,17 +22,18 @@
     text-align: center;
     color: #1f1f1f;
     max-width: 505px;
-    margin: 0 auto 25px;
+    margin: 0 auto 70px;
 
     &::after {
       content: "";
       position: absolute;
-      bottom: -55px;
+      bottom: -50px;
       left: 10px;
       width: 500px;
       height: 250px;
       background: url("../../../public/images/mineTitle.png") no-repeat
         center/contain;
+      z-index: -1;
     }
   }
 
@@ -35,111 +41,12 @@
     color: var(--color-black);
   }
 
-  .minelist {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Две колонки одинаковой ширины */
-    column-gap: 550px;
-    row-gap: 50px;
-    align-items: start; /* Выравнивание элементов по вертикали */
-
-    .mineItem:nth-child(1) {
-      .innerTitle {
-        width: 310px;
-      }
-    }
-    .mineItem:nth-child(2) {
-      .innerTitle {
-        width: 310px;
-      }
-    }
-    .mineItem:nth-child(3) {
-      .innerTitle {
-        width: 310px;
-      }
-    }
-    .mineItem:nth-child(4) {
-      .innerTitle {
-        width: 310px;
-      }
-    }
-
-    .mineItem:nth-child(1) .innerTitle::after {
-      bottom: -40px;
-      left: -35px;
-      background: url("../../../public/images/mineTitleLeft.png") no-repeat
-        center/contain;
-    }
-    .mineItem:nth-child(1) .innerTitle::before {
-      content: "";
-      position: absolute;
-      right: -170px;
-      bottom: -80px;
-      width: 200px;
-      height: 140px;
-      background: url("../../../public/images/shortArrow.png") no-repeat
-        center/contain;
-    }
-    .mineItem:nth-child(2) .innerTitle::after {
-      width: 380px;
-      height: 120px;
-      left: -30px;
-      bottom: -20px;
-      background: url("../../../public/images/mineTitleThird.png") no-repeat
-        center/contain;
-      z-index: -1;
-    }
-    .mineItem:nth-child(2) .innerTitle::before {
-      content: "";
-      position: absolute;
-      width: 170px;
-      height: 470px;
-      right: -230px;
-      bottom: -50px;
-      background: url("../../../public/images/midArrow.png") no-repeat
-        center/contain;
-    }
-    .mineItem:nth-child(3) .innerTitle::after {
-      width: 400px;
-      height: 300px;
-      bottom: -80px;
-      left: -40px;
-      z-index: -1;
-    }
-    .mineItem:nth-child(4) .innerTitle::after {
-      width: 400px;
-      height: 190px;
-      bottom: -31px;
-      left: -49px;
-    }
-    .mineItem:nth-child(4) .innerTitle::before {
-      content: "";
-      position: absolute;
-      left: -230px;
-      bottom: 50px;
-      height: 450px;
-      width: 150px;
-      background: url("../../../public/images/longArrow.png") no-repeat
-        center/contain;
-      transform: rotate(-10deg);
-    }
-  }
-
-  .mineItem:nth-child(1),
-  .mineItem:nth-child(2) {
-    grid-column: 1; /* Первая колонка */
-  }
-
-  .mineItem:nth-child(3),
-  .mineItem:nth-child(4) {
-    grid-column: 2; /* Вторая колонка */
-    margin-top: 50px; /* Смещение второй колонки вниз */
-  }
-
-  .mineItem:nth-child(3) {
-    grid-row: 1;
-  }
-
   .innerTitle {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1.3em;
+    color: #1f1f1f;
     position: relative;
     color: var(--color-black);
     margin-bottom: 50px;
@@ -153,142 +60,429 @@
       left: 0;
       background: url("../../../public/images/mineTitle.png") no-repeat
         center/contain;
+      z-index: -1;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+    }
+  }
+
+  .minelistLeft {
+    width: 100%;
+    max-width: 380px;
+
+    .mineItem {
+      &:nth-child(1) {
+        margin-bottom: 100px;
+        .innerTitle {
+          &::after {
+            bottom: -38px;
+            left: -38px;
+          }
+          &::before {
+            top: -59px;
+            left: 241px;
+            width: 180px;
+            height: 110px;
+            background: url("../../../public/images/arrow1.svg") no-repeat
+              center/contain;
+          }
+        }
+      }
+      &:nth-child(2) {
+        .innerTitle {
+          &::after {
+            width: 400px;
+            height: 185px;
+            bottom: -48px;
+            left: -30px;
+            background: url("../../../public/images/mineTitleThird.png")
+              no-repeat center/contain;
+          }
+          &::before {
+            top: -358px;
+            left: 315px;
+            width: 160px;
+            height: 350px;
+            background: url("../../../public/images/arrow3.svg") no-repeat
+              center/contain;
+          }
+        }
+      }
+    }
+  }
+
+  .minelistRight {
+    width: 100%;
+    max-width: 372px;
+    margin-top: 80px;
+
+    .mineItem {
+      &:nth-child(1) {
+        margin-bottom: 100px;
+        .innerTitle {
+          max-width: 275px;
+
+          &::after {
+            width: 310px;
+            height: 152px;
+            bottom: -30px;
+            left: -22px;
+          }
+          &::before {
+            top: -210px;
+            left: 30px;
+            width: 100px;
+            height: 150px;
+            background: url("../../../public/images/arrow2.svg") no-repeat
+              center/contain;
+          }
+        }
+      }
+      &:nth-child(2) {
+        .innerTitle {
+          &::after {
+            width: 450px;
+            height: 186px;
+            bottom: -32px;
+            left: -81px;
+            background-image: url("../../../public/images/mineTitleАourth.png");
+          }
+          &::before {
+            left: -131px;
+            top: -450px;
+            width: 108px;
+            height: 424px;
+            background: url("../../../public/images/arrow4.svg") no-repeat
+              center/contain;
+          }
+        }
+      }
     }
   }
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1200px) {
   .mine {
-    .mainTitle {
-      margin-bottom: 120px;
+    .minelistLeft {
+      width: 100%;
+      max-width: 380px;
+
+      .mineItem {
+        &:nth-child(1) {
+          margin-bottom: 100px;
+          .innerTitle {
+            &::after {
+              bottom: -38px;
+              left: -38px;
+            }
+            &::before {
+              top: -30px;
+              left: 238px;
+              width: 160px;
+              height: 100px;
+            }
+          }
+        }
+        &:nth-child(2) {
+          .innerTitle {
+            &::after {
+              width: 400px;
+              height: 185px;
+              bottom: -48px;
+              left: -30px;
+              background: url("../../../public/images/mineTitleThird.png")
+                no-repeat center/contain;
+            }
+            &::before {
+              top: -330px;
+              left: 331px;
+              width: 125px;
+              height: 300px;
+            }
+          }
+        }
+      }
     }
 
-    .minelist {
-    }
+    .minelistRight {
+      width: 100%;
+      max-width: 372px;
+      margin-top: 80px;
 
-    .minelist {
-      display: grid;
-      grid-template-columns: 1fr 1fr; /* Две колонки одинаковой ширины */
-      column-gap: 250px;
-      row-gap: 50px;
-      align-items: start; /* Выравнивание элементов по вертикали */
+      .mineItem {
+        &:nth-child(1) {
+          margin-bottom: 100px;
+          .innerTitle {
+            max-width: 275px;
 
-      .mineItem:nth-child(1) .innerTitle::before {
-        bottom: -40px;
-      }
-
-      .mineItem:nth-child(2) .innerTitle::before {
-        content: "";
-        position: absolute;
-        width: 170px;
-        height: 470px;
-        right: -230px;
-        bottom: -50px;
-        background: url("../../../public/images/midArrow.png") no-repeat
-          center/contain;
-      }
-
-      .mineItem:nth-child(2) .innerTitle::before {
-        width: 135px;
-        height: 470px;
-        right: -226px;
-        bottom: -90px;
-      }
-
-      .mineItem:nth-child(4) .innerTitle::before {
-        left: -185px;
-        transform: rotate(0deg);
+            &::after {
+              width: 310px;
+              height: 152px;
+              bottom: -30px;
+              left: -22px;
+            }
+            &::before {
+              top: -210px;
+              left: 70px;
+              width: 100px;
+              height: 140px;
+            }
+          }
+        }
+        &:nth-child(2) {
+          .innerTitle {
+            &::after {
+              width: 450px;
+              height: 186px;
+              bottom: -32px;
+              left: -81px;
+              background-image: url("../../../public/images/mineTitleАourth.png");
+            }
+            &::before {
+              left: -100px;
+              top: -435px;
+              width: 76px;
+              height: 407px;
+            }
+          }
+        }
       }
     }
   }
 }
 
-@media (max-width: 1150px) {
+@media (max-width: 1100px) {
   .mine {
-    .mineItem:nth-child(1) .innerTitle::before {
-      display: none;
-    }
+    .minelistRight {
+      width: 100%;
+      max-width: 372px;
+      margin-top: 80px;
 
-    .mineItem:nth-child(2) .innerTitle::before {
-      display: none;
-    }
-
-    .mineItem:nth-child(3) .innerTitle::before {
-      display: none;
-    }
-
-    .mineItem:nth-child(4) .innerTitle::before {
-      display: none;
-    }
-    .mineItem:nth-child(3) {
-      position: relative;
-      top: 100px;
-    }
-    .mineItem:nth-child(4) {
-      position: relative;
-      margin-top: 150px;
-    }
-
-    .minelist {
-      column-gap: 50px;
+      .mineItem {
+        &:nth-child(1) {
+          .innerTitle {
+            &::before {
+              left: 130px;
+            }
+          }
+        }
+      }
     }
   }
 }
 
 @media (max-width: 991px) {
   .mine {
-    .minelist {
-      row-gap: 250px;
-      display: flex;
-      flex-direction: column;
+    .mainTitle {
+      font-size: 35px;
+      margin: 0 auto 280px;
 
-      .mineItem:nth-child(1) .innerTitle::after {
-        left: 0px;
+      &::after {
+        height: 215px;
       }
     }
 
-    .mineItem {
-      position: relative;
-      max-width: 360px;
-      margin: 0 auto;
+    .wrapper {
+      flex-direction: column;
+      align-items: center;
       text-align: center;
+    }
 
-      &:not(:last-child) {
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: -180px;
-          left: 50%;
-          width: 40px;
-          height: 150px;
-          background: url("../../../public/images/straightArrow.png") no-repeat
-            center/contain;
-          transform: translate(-50%);
+    .minelistLeft {
+      width: 100%;
+      max-width: 380px;
+      gap: 180px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 180px;
+
+      .mineItem {
+        &:nth-child(1) {
+          margin-bottom: 100px;
+          .innerTitle {
+            &::after {
+              left: 37px;
+            }
+            &::before {
+              width: 76px;
+              height: 170px;
+              top: -225px;
+              left: 145px;
+              transform: rotate(-14deg) scaleX(-1);
+              background: url("../../../public/images/arrow2.svg") no-repeat
+                center/contain;
+            }
+          }
+        }
+        &:nth-child(2) {
+          .innerTitle {
+            &::after {
+              width: 450px;
+            }
+            &::before {
+              width: 76px;
+              height: 170px;
+              top: -250px;
+              left: 170px;
+              transform: rotate(15deg);
+              background: url("../../../public/images/arrow2.svg") no-repeat
+                center/contain;
+            }
+          }
         }
       }
     }
 
-    .mineItem:nth-child(3) {
-      position: relative;
-      top: 0;
-    }
-    .mineItem:nth-child(4) {
-      position: relative;
-      margin-top: 20px;
+    .minelistRight {
+      width: 100%;
+      max-width: 372px;
+      margin-top: 80px;
+      gap: 180px;
+      display: flex;
+      flex-direction: column;
+
+      .mineItem {
+        &:nth-child(1) {
+          .innerTitle {
+            margin: 0 auto 50px;
+            &::before {
+              width: 76px;
+              height: 170px;
+              top: -240px;
+              left: 88px;
+              transform: rotate(-15deg) scaleX(-1);
+              background: url("../../../public/images/arrow2.svg") no-repeat
+                center/contain;
+            }
+          }
+        }
+        &:nth-child(2) {
+          .innerTitle {
+            &::after {
+              left: -43px;
+            }
+            &::before {
+              width: 76px;
+              height: 170px;
+              top: -250px;
+              left: 150px;
+              transform: rotate(15deg);
+              background: url("../../../public/images/arrow2.svg") no-repeat
+                center/contain;
+            }
+          }
+        }
+      }
     }
   }
 }
 
 @media (max-width: 768px) {
   .mine {
+    padding: 67px 0 30px;
+    overflow: hidden;
+
     .mainTitle {
-      font-size: 32px;
-      max-width: 338px;
+      font-size: 29px;
+      max-width: 322px;
+      margin: 0 auto 223px;
+
       &::after {
-        bottom: -60px;
-        left: -23px;
-        width: 400px;
-        height: 250px;
+        height: 168px;
+        left: -80px;
+        bottom: -35px;
+      }
+    }
+
+    .minelistLeft {
+      width: 100%;
+      max-width: 380px;
+      gap: 100px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 130px;
+
+      .mineItem {
+        &:nth-child(1) {
+          margin-bottom: 100px;
+          .innerTitle {
+            &::after {
+              left: 37px;
+            }
+            &::before {
+              width: 76px;
+              height: 113px;
+              left: 145px;
+              top: -170px;
+              transform: rotate(-14deg) scaleX(-1);
+              background: url("../../../public/images/arrow2.svg") no-repeat
+                center/contain;
+            }
+          }
+        }
+        &:nth-child(2) {
+          .innerTitle {
+            &::after {
+              width: 450px;
+            }
+            &::before {
+              width: 76px;
+              height: 113px;
+              top: -180px;
+              left: 170px;
+              transform: rotate(15deg);
+              background: url("../../../public/images/arrow2.svg") no-repeat
+                center/contain;
+            }
+          }
+        }
+      }
+    }
+
+    .minelistRight {
+      width: 100%;
+      max-width: 372px;
+      margin-top: 80px;
+      gap: 130px;
+      display: flex;
+      flex-direction: column;
+
+      .mineItem {
+        &:nth-child(1) {
+          .innerTitle {
+            margin: 0 auto 50px;
+            &::before {
+              width: 76px;
+              height: 113px;
+              top: -185px;
+              left: 88px;
+              transform: rotate(-15deg) scaleX(-1);
+              background: url("../../../public/images/arrow2.svg") no-repeat
+                center/contain;
+            }
+          }
+        }
+        &:nth-child(2) {
+          .innerTitle {
+            &::after {
+              left: -43px;
+            }
+            &::before {
+              width: 76px;
+              height: 113px;
+              top: -200px;
+              left: 150px;
+              transform: rotate(15deg);
+              background: url("../../../public/images/arrow2.svg") no-repeat
+                center/contain;
+            }
+          }
+        }
       }
     }
   }
@@ -296,76 +490,205 @@
 
 @media (max-width: 500px) {
   .mine {
-    .mainTitle {
-      font-size: 25px;
-      max-width: 338px;
-      &::after {
-        bottom: -40px;
-        left: -15px;
-        width: 300px;
-        height: 164px;
-      }
-    }
-
-    .minelist {
-      .mineItem:nth-child(1) {
-        .innerTitle {
-          max-width: 300px;
-        }
-      }
-      .mineItem:nth-child(2) {
-        .innerTitle {
-          max-width: 210px;
-        }
-      }
-      .mineItem:nth-child(3) {
-        .innerTitle {
-          max-width: 260px;
-        }
-      }
-      .mineItem:nth-child(4) {
-        .innerTitle {
-          max-width: 300px;
-        }
-      }
-      .mineItem:nth-child(1) .innerTitle::after {
-        bottom: -40px;
-        left: 23px;
-        width: 83%;
-        background: url("../../../public/images/mineTitleLeft.png") no-repeat
-          center/contain;
-      }
-      .mineItem:nth-child(2) .innerTitle::after {
-        width: 128%;
-        height: 131px;
-        left: -25px;
-        bottom: -28px;
-        background: url("../../../public/images/mineTitleThird.png") no-repeat
-          center/contain;
-        z-index: -1;
-      }
-      .mineItem:nth-child(3) .innerTitle::after {
-        width: 100%;
-        height: 277px;
-        bottom: -80px;
-        left: -3px;
-      }
-      .mineItem:nth-child(4) .innerTitle::after {
-        width: 100%;
-        height: 190px;
-        bottom: -45px;
-        left: -7px;
-      }
-    }
-
     .innerTitle {
-      font-size: 20px;
-      line-height: 1.2em;
+      font-size: 24px;
     }
 
-    .innerText {
+    .minelistLeft {
       width: 100%;
-      max-width: 100%;
+      max-width: 380px;
+      gap: 100px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 130px;
+
+      .mineItem {
+        &:nth-child(1) {
+          margin-bottom: 100px;
+
+          .innerTitle {
+            max-width: 200px;
+            margin: 0 auto 50px;
+            &::after {
+              left: -35px;
+            }
+            &::before {
+              width: 76px;
+              height: 113px;
+              left: 55px;
+              top: -170px;
+              transform: rotate(-14deg) scaleX(-1);
+              background: url("../../../public/images/arrow2.svg") no-repeat
+                center/contain;
+            }
+          }
+        }
+        &:nth-child(2) {
+          .innerTitle {
+            &::after {
+              width: 450px;
+            }
+            &::before {
+              width: 76px;
+              height: 113px;
+              top: -180px;
+              left: 170px;
+              transform: rotate(15deg);
+              background: url("../../../public/images/arrow2.svg") no-repeat
+                center/contain;
+            }
+          }
+        }
+      }
+    }
+
+    .minelistRight {
+      width: 100%;
+      max-width: 372px;
+      margin-top: 80px;
+      gap: 130px;
+      display: flex;
+      flex-direction: column;
+
+      .mineItem {
+        &:nth-child(1) {
+          .innerTitle {
+            margin: 0 auto 50px;
+            &::before {
+              width: 76px;
+              height: 113px;
+              top: -185px;
+              left: 88px;
+              transform: rotate(-15deg) scaleX(-1);
+              background: url("../../../public/images/arrow2.svg") no-repeat
+                center/contain;
+            }
+          }
+        }
+        &:nth-child(2) {
+          .innerTitle {
+            &::after {
+              left: -43px;
+            }
+            &::before {
+              width: 76px;
+              height: 113px;
+              top: -200px;
+              left: 150px;
+              transform: rotate(15deg);
+              background: url("../../../public/images/arrow2.svg") no-repeat
+                center/contain;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .mine {
+    .mainTitle {
+      &::after {
+        left: -117px;
+        bottom: -20px;
+      }
+    }
+
+    .minelistLeft {
+      width: 100%;
+      max-width: 380px;
+      gap: 70px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 130px;
+
+      .mineItem {
+        &:nth-child(1) {
+          margin-bottom: 100px;
+
+          .innerTitle {
+            max-width: 200px;
+            margin: 0 auto 50px;
+            &::after {
+              left: -35px;
+            }
+            &::before {
+              width: 76px;
+              height: 113px;
+              left: 55px;
+              top: -170px;
+              transform: rotate(-14deg) scaleX(-1);
+              background: url("../../../public/images/arrow2.svg") no-repeat
+                center/contain;
+            }
+          }
+        }
+        &:nth-child(2) {
+          .innerTitle {
+            &::after {
+              left: -80px;
+              bottom: -40px;
+              width: 450px;
+            }
+            &::before {
+              width: 76px;
+              height: 113px;
+              top: -160px;
+              left: 110px;
+              transform: rotate(15deg);
+              background: url("../../../public/images/arrow2.svg") no-repeat
+                center/contain;
+            }
+          }
+        }
+      }
+    }
+
+    .minelistRight {
+      width: 100%;
+      max-width: 372px;
+      margin-top: 80px;
+      gap: 130px;
+      display: flex;
+      flex-direction: column;
+
+      .mineItem {
+        &:nth-child(1) {
+          margin-bottom: 50px;
+          .innerTitle {
+            margin: 0 auto 50px;
+            &::before {
+              width: 76px;
+              height: 113px;
+              top: -185px;
+              left: 88px;
+              transform: rotate(-15deg) scaleX(-1);
+              background: url("../../../public/images/arrow2.svg") no-repeat
+                center/contain;
+            }
+          }
+        }
+        &:nth-child(2) {
+          .innerTitle {
+            &::after {
+              width: 395px;
+              height: 155px;
+              bottom: -22px;
+              left: -55px;
+            }
+            &::before {
+              width: 76px;
+              height: 113px;
+              top: -170px;
+              left: 115px;
+              transform: rotate(15deg);
+              background: url("../../../public/images/arrow2.svg") no-repeat
+                center/contain;
+            }
+          }
+        }
+      }
     }
   }
 }

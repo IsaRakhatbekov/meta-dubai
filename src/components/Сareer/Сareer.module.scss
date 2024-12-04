@@ -8,8 +8,31 @@
     font-size: calc(29px + 23 * (100vw / 1440));
     line-height: 1.5em;
     color: #000;
-    max-width: 680px;
+    max-width: 870px;
     margin-bottom: 20px;
+
+    & span {
+      position: relative;
+      top: 10px;
+      left: 15px;
+      color: var(--color-blue);
+      font-family: var(--font-adventure);
+      font-weight: 400;
+      font-size: 83px;
+      font-size: calc(29px + 23 * (100vw / 1440));
+      line-height: 131%;
+      color: #0046fe;
+    }
+  }
+
+  .subtitle {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.3em;
+    margin-bottom: 30px;
+    color: var(--color-black);
+    max-width: 560px;
   }
 
   .careerWrapper {
@@ -22,19 +45,30 @@
   .careerContent {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 640px;
   }
 
   .block {
     padding: 35px 0;
     border-bottom: 0.5px solid #ccc;
-    width: 100%;
-    max-width: 439px;
+    display: flex;
+    gap: 35px;
+  }
+
+  .num {
+    display: inline-block;
+    font-family: var(--font-sweet);
+    font-weight: 400;
+    font-size: 62px;
+    line-height: 1.2em;
+    color: #0046fe;
   }
 
   .innerTitle {
     font-family: var(--font-soyuz);
     font-weight: 700;
-    font-size: 42px;
+    font-size: 58px;
     line-height: 1.2em;
     color: #000;
   }
@@ -47,7 +81,8 @@
   }
 
   .careerImgWrapper {
-    width: 549px;
+    width: 100%;
+    max-width: 500px;
     height: 100%;
     max-height: 1190px;
     border-radius: 30px;
@@ -60,13 +95,29 @@
   }
 }
 
+@media (max-width: 1500px) {
+  .career {
+    .innerTitle {
+      font-size: 45px;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .career {
+    .num {
+      font-size: 50px;
+    }
+    .innerTitle {
+      font-size: 33px;
+    }
+  }
+}
+
 @media (max-width: 991px) {
   .career {
     .block {
-      padding: 27px 0;
-    }
-    .innerTitle {
-      font-size: 32px;
+      padding: 20px 0;
     }
   }
 }
@@ -74,25 +125,22 @@
 @media (max-width: 768px) {
   .career {
     .careerContent {
-      width: 100%;
       max-width: 100%;
     }
     .block {
-      margin: 0 auto;
-      max-width: 500px;
+      max-width: 100%;
     }
     .careerImgWrapper {
       display: none;
     }
-    .innerTitle {
-      font-size: 26px;
+    .num {
+      display: none;
     }
   }
 }
 
 @media (max-width: 500px) {
   .career {
-    padding: 70px 0;
     .innerTitle {
       font-size: 24px;
     }

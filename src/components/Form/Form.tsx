@@ -1,4 +1,6 @@
-import React, { useRef, FormEvent } from "react";
+import React, { useRef, FormEvent, useState } from "react";
+import "react-phone-input-2/lib/style.css";
+import PhoneInput from "react-phone-input-2";
 import styles from "./Form.module.scss";
 
 type FormData = {
@@ -6,8 +8,16 @@ type FormData = {
   [key: string]: string | string[];
 };
 
+type CountryData = {
+  countryCode: string;
+  dialCode: string;
+  name: string; // Название страны
+};
+
 export const Form: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [phone, setPhone] = useState("");
+  const [countryName, setCountryName] = useState("");
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault(); // Предотвращаем стандартное поведение формы
@@ -30,6 +40,9 @@ export const Form: React.FC = () => {
         }
       }
     });
+
+    // Добавляем телефонный номер и страну в одну строку
+    formData["Номер телефона"] = `${phone}, ${countryName}`;
 
     console.log(formData); // Выводим собранные данные в консоль
   };
@@ -129,19 +142,55 @@ export const Form: React.FC = () => {
           <form action="#" className={styles.form} onSubmit={handleSubmit}>
             <div className={styles.formInpWrapper}>
               <label htmlFor="name">Имя</label>
-              <input name="name" id="name" type="text" />
+              <input
+                className={styles.formInput}
+                name="name"
+                id="name"
+                type="text"
+              />
             </div>
             <div className={styles.formInpWrapper}>
               <label htmlFor="age">Возраст</label>
-              <input name="age" id="age" type="text" />
+              <input
+                className={styles.formInput}
+                name="age"
+                id="age"
+                type="text"
+              />
             </div>
             <div className={styles.formInpWrapper}>
               <label htmlFor="phone">Номер телефона</label>
-              <input name="phone" id="phone" type="text" />
+              <PhoneInput
+                inputStyle={{
+                  border: "1px solid #d0d5dd",
+                  borderRadius: "8px",
+                  width: "100%",
+                  maxWidth: "700px",
+                  height: "48px",
+                  boxShadow: "0 1px 2px 0 rgba(16, 24, 40, 0.05)",
+                  background: "#fff",
+                  fontFamily: "var(--third-family)",
+                  fontWeight: "400",
+                  fontSize: "16px",
+                  lineHeight: "150%",
+                  color: "#667085",
+                }}
+                country={"us"}
+                value={phone}
+                onChange={(value, data: CountryData) => {
+                  setPhone(value); // Сохраняем номер телефона
+                  setCountryName(data.name); // Сохраняем название страны
+                }}
+              />
             </div>
             <div className={styles.formInpWrapper}>
               <label htmlFor="country">Страна проживания</label>
-              <input name="country" id="country" type="text" />
+              <input
+                className={styles.formInput}
+                name="country"
+                id="country"
+                type="text"
+              />
             </div>
             <button className={styles.formBtn} type="submit">
               Отправить

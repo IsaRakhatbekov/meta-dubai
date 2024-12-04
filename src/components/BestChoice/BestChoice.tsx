@@ -11,6 +11,9 @@ import whiteTwo from "@/public/images/BestChoice/white2.png";
 import whiteThree from "@/public/images/BestChoice/white2.png";
 import whiteFour from "@/public/images/BestChoice/white3.png";
 
+import azat1 from "@/public/images/azat1.png";
+import azat2 from "@/public/images/azat2.png";
+
 export const BestChoice = () => {
   return (
     <section className={styles.choice}>
@@ -92,16 +95,10 @@ export const BestChoice = () => {
             </div>
             <div className={styles.whiteImgWrapper}>
               <div className={styles.whiteImg}>
-                <Image src={whiteOne} alt="" />
+                <Image src={azat1} alt="" />
               </div>
               <div className={styles.whiteImg}>
-                <Image src={blackTwo} alt="" />
-              </div>
-              <div className={styles.whiteImg}>
-                <Image src={whiteTwo} alt="" />
-              </div>
-              <div className={styles.whiteImg}>
-                <Image src={whiteFour} alt="" />
+                <Image src={azat2} alt="" />
               </div>
             </div>
           </li>

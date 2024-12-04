@@ -84,10 +84,14 @@ export const Receive = () => {
       </div>
       <div className={styles.receiveBottom}>
         <div className={`${styles.bottomContainer} container`}>
-          <p className={styles.bottomText}>
-            Ты получишь все для международной карьеры, а также ценные связи,
-            которые откроют для тебя новые возможности
-          </p>
+          <div className={styles.bottomWrapper}>
+            <h2 className={styles.bottomTitle}>Все для твоего успеха</h2>
+            <p className={styles.bottomText}>
+              Ты получишь все для <span>международной карьеры</span>, а также
+              ценные связи, которые откроют для тебя
+              <span> новые возможности</span>
+            </p>
+          </div>
         </div>
       </div>
     </section>
