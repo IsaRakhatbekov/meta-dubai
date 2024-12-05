@@ -19,6 +19,7 @@
     "sass": "^1.80.7"
   },
   "devDependencies": {
+    "@types/gsap": "^3.0.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
