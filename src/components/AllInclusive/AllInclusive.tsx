@@ -39,7 +39,7 @@ export const AllInclusive = () => {
   }, []);
 
   return (
-    <section className={styles.allInclusive}>
+    <section className={styles.allInclusive} id="allInclusive">
       <div className={`${styles.allInclusiveContainer} container`}>
         <div ref={wrapperRef} className={styles.wrapper}>
           <div

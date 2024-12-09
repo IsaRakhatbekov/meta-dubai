@@ -1,27 +1,56 @@
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import styles from "./BestChoice.module.scss";
+
 import blackOne from "@/public/images/BestChoice/1.png";
 import blackTwo from "@/public/images/BestChoice/2.png";
-// import blackThree from "@/public/images/BestChoice/3.png";
 import blackFour from "@/public/images/BestChoice/4.png";
 import blackFive from "@/public/images/BestChoice/5.png";
-
-import whiteOne from "@/public/images/BestChoice/white1.png";
-import whiteTwo from "@/public/images/BestChoice/white2.png";
-import whiteThree from "@/public/images/BestChoice/white2.png";
-import whiteFour from "@/public/images/BestChoice/white3.png";
 
 import azat1 from "@/public/images/azat1.png";
 import azat2 from "@/public/images/azat2.png";
 
-export const BestChoice = () => {
+export const BestChoice: React.FC = () => {
+  const choiceRef = useRef<HTMLDivElement | null>(null);
+  const isScrollBlocked = useRef(false);
+
+  const handleScroll = (e: WheelEvent) => {
+    if (!choiceRef.current) return;
+
+    const rect = choiceRef.current.getBoundingClientRect();
+
+    // Проверяем, находится ли нижняя часть секции в видимой области
+    if (rect.bottom <= window.innerHeight && rect.top <= 0) {
+      if (!isScrollBlocked.current) {
+        isScrollBlocked.current = true; // Блокируем скролл
+        e.preventDefault();
+        console.log("Скролл заблокирован на секции choice.");
+      }
+    } else {
+      isScrollBlocked.current = false; // Разрешаем скролл, если пользователь не в зоне секции
+    }
+  };
+
+  useEffect(() => {
+    const onWheel = (e: WheelEvent) => {
+      handleScroll(e);
+    };
+
+    window.addEventListener("wheel", onWheel, { passive: false });
+
+    return () => {
+      window.removeEventListener("wheel", onWheel);
+    };
+  }, []);
+
   return (
-    <section className={styles.choice}>
+    <section className={styles.choice} ref={choiceRef}>
       <div className={`${styles.choiceContainer} container`}>
         <h2 className={styles.choiceTitle}>
           Почему это обучение — лучший выбор для моего будущего?
         </h2>
         <ul className={styles.choiceWrapper}>
+          {/* Black Block */}
           <li className={styles.black}>
             <div className={styles.blackTextWrapper}>
               <h3 className={styles.blackInnerTitle}>
@@ -29,9 +58,7 @@ export const BestChoice = () => {
               </h3>
               <p className={styles.blackText}>
                 Dubai Knowledge Park — это не просто место для учебы, это центр
-                возможностей на мировом уровне Современные учебные аудитории,
-                доступ к новейшим технологиям и вдохновляющая атмосфера делают
-                наше обучение лучшим местом для получения знаний
+                возможностей на мировом уровне.
               </p>
               <ul className={styles.blackList}>
                 <li className={styles.blackItem}>
@@ -49,23 +76,14 @@ export const BestChoice = () => {
               </ul>
             </div>
             <div className={styles.blackImgWrapper}>
-              <div className={styles.blackImg}>
-                <Image src={blackOne} alt="" />
-              </div>
-              <div className={styles.blackImg}>
-                <Image src={blackTwo} alt="" />
-              </div>
-              <div className={styles.blackImg}>
-                <Image src={blackTwo} alt="" />
-              </div>
-              <div className={styles.blackImg}>
-                <Image src={blackFour} alt="" />
-              </div>
-              <div className={styles.blackImg}>
-                <Image src={blackFive} alt="" />
-              </div>
+              <Image src={blackOne} alt="Black Block Image 1" />
+              <Image src={blackTwo} alt="Black Block Image 2" />
+              <Image src={blackFour} alt="Black Block Image 4" />
+              <Image src={blackFive} alt="Black Block Image 5" />
             </div>
           </li>
+
+          {/* White Block */}
           <li className={styles.white}>
             <div className={styles.whiteTextWrapper}>
               <h3 className={styles.whiteInnerTitle}>
@@ -94,12 +112,8 @@ export const BestChoice = () => {
               </ul>
             </div>
             <div className={styles.whiteImgWrapper}>
-              <div className={styles.whiteImg}>
-                <Image src={azat1} alt="" />
-              </div>
-              <div className={styles.whiteImg}>
-                <Image src={azat2} alt="" />
-              </div>
+              <Image src={azat1} alt="White Block Image 1" />
+              <Image src={azat2} alt="White Block Image 2" />
             </div>
           </li>
         </ul>

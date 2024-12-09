@@ -120,14 +120,6 @@ export const Form: React.FC = () => {
             <label className={styles.customCheckbox}>
               <input type="checkbox" />
               <span className={styles.checkbox}></span>
-              Ограничен(а) в возможностях, но готов(а) вложить средства в
-              качественное образование в пределах бюджета.
-            </label>
-          </div>
-          <div className={styles.checkboxWrapper}>
-            <label className={styles.customCheckbox}>
-              <input type="checkbox" />
-              <span className={styles.checkbox}></span>
               Предпочитаю минимизировать расходы на обучение и выбрать наиболее
               доступные варианты.
             </label>
