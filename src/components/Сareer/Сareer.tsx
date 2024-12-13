@@ -4,7 +4,7 @@ import dubaiPhoto from "@/public/images/towerSunset.png";
 
 export const Сareer = () => {
   return (
-    <section className={styles.career}>
+    <section className={styles.career} id="career">
       <div className={`${styles.careerContainer} container`}>
         <h2 className={styles.careerTitle}>
           Как я достигну карьеры в международной <span>компании?</span>

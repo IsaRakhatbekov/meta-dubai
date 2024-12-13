@@ -7,7 +7,7 @@ export const Footer = () => {
     <section className={styles.footer}>
       <div className={`${styles.footerContainer} container`}>
         <nav className={styles.nav}>
-          <a className={styles.footerLogo} href="#">
+          <a className={styles.footerLogo} href="#hero">
             <Image src={logo} alt="Логотип" />
           </a>
           <div className={styles.some}></div>

@@ -4,7 +4,9 @@
   left: 0;
   right: 0;
   padding-top: 50px;
-  transition: all 0.5s ease-in;
+  transition: all 0.4s;
+  z-index: 99;
+
   .menu {
     display: flex;
     align-items: center;
@@ -30,6 +32,17 @@
   .menuActive {
     transform: translateY(0);
     z-index: 99;
+
+    & .list {
+      & .item {
+        text-align: center;
+
+        & .link {
+          width: 100%;
+          padding: 20px 0;
+        }
+      }
+    }
   }
 
   .list {
@@ -64,6 +77,15 @@
     font-size: 16px;
     text-transform: uppercase;
     color: var(--color-white);
+
+    &:active {
+      border: none;
+      outline: none;
+    }
+    &:focus {
+      outline: none;
+      border: none;
+    }
   }
 
   .burgerBtn {
@@ -76,7 +98,7 @@
     backdrop-filter: blur(2px);
     display: none;
     position: relative;
-    z-index: 90;
+    z-index: 100;
 
     & span {
       display: inline-block;
@@ -86,7 +108,7 @@
       height: 3px;
       background-color: var(--color-white);
       border-radius: 2px;
-      z-index: 99;
+      z-index: 100;
       transition: all 0.3s;
 
       &::after,
@@ -133,7 +155,6 @@
   top: 0;
   backdrop-filter: blur(10px);
   background-color: var(--color-dark-blue);
-  transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
 }
 
 @media (max-width: 1400px) {
@@ -145,7 +166,6 @@
     .list {
       gap: 15px;
     }
-
     .link {
       font-weight: 400;
     }

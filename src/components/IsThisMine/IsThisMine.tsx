@@ -1,7 +1,7 @@
 import styles from "./IsThisMine.module.scss";
 export const IsThisMine = () => {
   return (
-    <section className={styles.mine}>
+    <section className={styles.mine} id="mine">
       <div className={`${styles.mineContainer} container`}>
         <div className={styles.mineWrapper}>
           <h2 className={styles.mainTitle}>

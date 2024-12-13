@@ -33,7 +33,7 @@ export const Receive = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className={styles.receive}>
+    <section ref={sectionRef} className={styles.receive} id="receive">
       <div className={`${styles.container} container`}>
         <div
           className={`${styles.receiveInner} ${

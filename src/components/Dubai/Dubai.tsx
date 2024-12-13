@@ -61,7 +61,7 @@ export const Dubai = () => {
   }, []);
 
   return (
-    <section className={`${styles.dubai} dubai-section`}>
+    <section className={`${styles.dubai} dubai-section`} id="dubai">
       {/* Список */}
       <ul className={styles.list}>
         <li className={styles.items}></li>

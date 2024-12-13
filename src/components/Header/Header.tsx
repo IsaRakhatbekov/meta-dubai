@@ -16,59 +16,83 @@ export const Header = () => {
     }
   };
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const handleCloseMenuMobile = () => {
+    setBurger(false);
+  };
 
   const handleClickBurgerMenu = () => {
     setBurger((prev) => !prev);
   };
 
-  console.log(burger);
+  // Проверяем положение при загрузке страницы
+  useEffect(() => {
+    // Выполняем проверку сразу после монтирования
+    if (window.scrollY > 10) {
+      setIsScrolled(true);
+    }
+
+    // Добавляем слушатель скролла
+    window.addEventListener("scroll", handleScroll);
+
+    // Очистка при размонтировании
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // Управление прокруткой страницы для мобильного меню
+  useEffect(() => {
+    if (burger) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [burger]);
 
   return (
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
       <div className={`${styles.headerContainer} container`}>
         <nav className={styles.headerNav}>
-          <a className={styles.logoWrapper} href="#">
+          <a className={styles.logoWrapper} href="#hero">
             <Image src={logo} alt="Logo" />
           </a>
           <ul className={styles.list}>
             <li className={styles.item}>
-              <a className={styles.link} href="#">
+              <a className={styles.link} href="#hero">
                 Главная
               </a>
             </li>
             <li className={styles.item}>
-              <a className={styles.link} href="#">
+              <a className={styles.link} href="#receive">
                 Преимущества
               </a>
             </li>
             <li className={styles.item}>
-              <a className={styles.link} href="#">
+              <a className={styles.link} href="#mine">
                 Кому подходит
               </a>
             </li>
             <li className={styles.item}>
-              <a className={styles.link} href="#">
+              <a className={styles.link} href="#choice">
                 Почему мы
               </a>
             </li>
             <li className={styles.item}>
-              <a className={styles.link} href="#">
+              <a className={styles.link} href="#career">
                 Карьера
               </a>
             </li>
             <li className={styles.item}>
-              <a className={styles.link} href="#">
+              <a className={styles.link} href="#dubai">
                 Дубай
               </a>
             </li>
             <li className={styles.item}>
-              <a className={styles.link} href="#">
+              <a className={styles.link} href="#allInclusive">
                 "Всё включено"
               </a>
             </li>
@@ -84,37 +108,65 @@ export const Header = () => {
           <div className={`${styles.menu} ${burger ? styles.menuActive : ""}`}>
             <ul className={styles.list}>
               <li className={styles.item}>
-                <a className={styles.link} href="#">
+                <a
+                  onClick={handleCloseMenuMobile}
+                  className={styles.link}
+                  href="#hero"
+                >
                   Главная
                 </a>
               </li>
               <li className={styles.item}>
-                <a className={styles.link} href="#">
+                <a
+                  onClick={handleCloseMenuMobile}
+                  className={styles.link}
+                  href="#receive"
+                >
                   Преимущества
                 </a>
               </li>
               <li className={styles.item}>
-                <a className={styles.link} href="#">
+                <a
+                  onClick={handleCloseMenuMobile}
+                  className={styles.link}
+                  href="#mine"
+                >
                   Кому подходит
                 </a>
               </li>
               <li className={styles.item}>
-                <a className={styles.link} href="#">
+                <a
+                  onClick={handleCloseMenuMobile}
+                  className={styles.link}
+                  href="#choice"
+                >
                   Почему мы
                 </a>
               </li>
               <li className={styles.item}>
-                <a className={styles.link} href="#">
+                <a
+                  onClick={handleCloseMenuMobile}
+                  className={styles.link}
+                  href="#career"
+                >
                   Карьера
                 </a>
               </li>
               <li className={styles.item}>
-                <a className={styles.link} href="#">
+                <a
+                  onClick={handleCloseMenuMobile}
+                  className={styles.link}
+                  href="#dubai"
+                >
                   Дубай
                 </a>
               </li>
               <li className={styles.item}>
-                <a className={styles.link} href="#">
+                <a
+                  onClick={handleCloseMenuMobile}
+                  className={styles.link}
+                  href="#allInclusive"
+                >
                   "Всё включено"
                 </a>
               </li>

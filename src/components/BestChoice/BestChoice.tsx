@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import styles from "./BestChoice.module.scss";
 
@@ -11,40 +11,69 @@ import azat1 from "@/public/images/azat1.png";
 import azat2 from "@/public/images/azat2.png";
 
 export const BestChoice: React.FC = () => {
-  const choiceRef = useRef<HTMLDivElement | null>(null);
-  const isScrollBlocked = useRef(false);
-
-  const handleScroll = (e: WheelEvent) => {
-    if (!choiceRef.current) return;
-
-    const rect = choiceRef.current.getBoundingClientRect();
-
-    // Проверяем, находится ли нижняя часть секции в видимой области
-    if (rect.bottom <= window.innerHeight && rect.top <= 0) {
-      if (!isScrollBlocked.current) {
-        isScrollBlocked.current = true; // Блокируем скролл
-        e.preventDefault();
-        console.log("Скролл заблокирован на секции choice.");
-      }
-    } else {
-      isScrollBlocked.current = false; // Разрешаем скролл, если пользователь не в зоне секции
-    }
-  };
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [isScrollingDisabled, setIsScrollingDisabled] = useState(false);
+  const [classesAdded, setClassesAdded] = useState(false); // Флаг для предотвращения повторного добавления классов
 
   useEffect(() => {
-    const onWheel = (e: WheelEvent) => {
-      handleScroll(e);
-    };
+    const section = sectionRef.current;
 
-    window.addEventListener("wheel", onWheel, { passive: false });
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsScrollingDisabled(true);
+        } else {
+          setIsScrollingDisabled(false);
+          setClassesAdded(false); // Сбрасываем флаг, если секция больше не видна
+        }
+      },
+      { threshold: 0.9 }
+    );
+
+    if (section) {
+      observer.observe(section);
+    }
 
     return () => {
-      window.removeEventListener("wheel", onWheel);
+      if (section) {
+        observer.unobserve(section);
+      }
     };
   }, []);
 
+  useEffect(() => {
+    const handleScrollAttempt = () => {
+      if (isScrollingDisabled && !classesAdded) {
+        const blackBlock = document.querySelector(`.${styles.black}`);
+        const whiteBlock = document.querySelector(`.${styles.white}`);
+        blackBlock?.classList.add(styles.blackActive); // Добавляем классы
+        whiteBlock?.classList.add(styles.whiteActive);
+        setClassesAdded(true); // Устанавливаем флаг, чтобы классы добавлялись только один раз
+      }
+    };
+
+    if (isScrollingDisabled) {
+      document.body.style.overflow = "hidden";
+      document.addEventListener("wheel", handleScrollAttempt, {
+        passive: true,
+      });
+      document.addEventListener("touchmove", handleScrollAttempt, {
+        passive: true,
+      });
+    } else {
+      document.body.style.overflow = "auto";
+      document.removeEventListener("wheel", handleScrollAttempt);
+      document.removeEventListener("touchmove", handleScrollAttempt);
+    }
+
+    // return () => {
+    //   document.body.style.overflow = "auto";
+    //   document.removeEventListener("wheel", handleScrollAttempt);
+    //   document.removeEventListener("touchmove", handleScrollAttempt);
+    // };
+  }, [isScrollingDisabled, classesAdded]);
   return (
-    <section className={styles.choice} ref={choiceRef}>
+    <section className={styles.choice} id="choice" ref={sectionRef}>
       <div className={`${styles.choiceContainer} container`}>
         <h2 className={styles.choiceTitle}>
           Почему это обучение — лучший выбор для моего будущего?

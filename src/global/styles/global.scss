@@ -15,6 +15,15 @@
   --color-orange: #ff7a00;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+
+  @media (max-width: 768px) {
+    scroll-padding-top: 65px;
+  }
+}
+
 /* Устанавливаем один из шрифтов по умолчанию для body */
 body {
   font-family: var(--font-mabryPro), sans-serif;
