@@ -1,5 +1,12 @@
 .choice {
+  position: relative;
   padding: 75px 0;
+  min-height: 3000px;
+
+  .choiceContainer {
+    position: sticky;
+    top: 0;
+  }
 
   .choiceTitle {
     font-family: var(--font-soyuz);
@@ -13,236 +20,169 @@
   }
 
   .choiceWrapper {
-    gap: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
 
-    // &:hover {
-    //   .black {
-    //     max-width: 40%;
-
-    //     .blackImg {
-    //       position: absolute;
-    //       width: 240px;
-    //       height: 140px;
-    //       transition: transform 0.8s ease-in-out;
-
-    //       & img {
-    //         width: 100%;
-    //         height: 100%;
-    //       }
-
-    //       &:nth-child(1) {
-    //         transform: translateX(350px);
-    //       }
-    //       &:nth-child(2) {
-    //         transform: translateX(250px);
-    //       }
-    //       &:nth-child(3) {
-    //         transform: translateX(250px);
-    //       }
-    //       &:nth-child(4) {
-    //         transform: translateX(250px);
-    //       }
-    //       &:nth-child(5) {
-    //         transform: translateX(350px);
-    //       }
-    //     }
-    //   }
-
-    //   .white {
-    //     max-width: 60%;
-
-    //     .whiteImg {
-    //       position: absolute;
-    //       overflow: hidden;
-    //       object-fit: cover;
-
-    //       &:nth-child(1) {
-    //         transform: translateX(0);
-    //       }
-    //       &:nth-child(2) {
-    //         transform: translateX(0);
-    //       }
-    //       &:nth-child(3) {
-    //         transform: translateX(0);
-    //       }
-    //       &:nth-child(4) {
-    //         transform: translateX(0);
-    //       }
-    //     }
-    //   }
-    // }
+  .choiceWrapper {
+    gap: 0;
   }
 
   .black {
     border-radius: 10px;
-    height: 560px;
+    height: 590px;
     width: 100%;
-    padding: 70px 20px;
+    padding: 0 0 0 20px;
+    margin-right: 40px;
     background: linear-gradient(90deg, #000 0%, #292929 100%);
-
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: space-between;
     transition: all 1s;
-  }
 
-  .blackTextWrapper {
-    max-width: 360px;
-    z-index: 1;
-  }
+    .blackTextWrapper {
+      max-width: 435px;
+      z-index: 1;
+    }
 
-  .whiteTextWrapper {
-    max-width: 350px;
-  }
+    .blackInnerTitle {
+      font-family: var(--font-soyuz);
+      font-weight: 700;
+      font-size: 42px;
+      line-height: 1.2em;
+      color: #fff;
+      margin-bottom: 35px;
+    }
 
-  .blackInnerTitle {
-    font-family: var(--font-soyuz);
-    font-weight: 700;
-    font-size: 42px;
-    line-height: 1.2em;
-    color: #fff;
-    margin-bottom: 35px;
-  }
-
-  .blackText {
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1.3em;
-    margin-bottom: 18px;
-    color: var(--color-white);
-  }
-
-  .blackItem {
     .blackText {
       font-size: 18px;
-      line-height: 0.5;
+      font-weight: 400;
+      line-height: 1.3em;
+      margin-bottom: 18px;
+      color: var(--color-white);
     }
-  }
 
-  .blackImgWrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    gap: 10px;
-  }
+    .blackImagesWrapper {
+      position: relative;
+      height: 100%;
+      width: 100%;
+    }
 
-  .blackImg {
-    position: absolute;
-    width: 240px;
-    height: 140px;
-    overflow: hidden;
-    border-radius: 10px;
-    transition: transform 0.8s ease-in-out;
+    .blackImgWrapper {
+      border-radius: 10px;
+      width: 332px;
+      height: 148px;
+      overflow: hidden;
+      position: absolute;
+    }
 
-    & img {
+    .blackImgFirst {
+      right: 0;
+      top: 0;
+    }
+    .blackImgSecond {
+      top: 50px;
+      left: 20px;
+    }
+    .blackImgThird {
+      top: 250px;
+      left: 150px;
+    }
+    .blackImgFourth {
+      bottom: 0;
+      right: 0;
+    }
+
+    .blackImgFifth {
+      width: 207px;
+      height: 180px;
+      right: -40px;
+      top: 200px;
+    }
+
+    .blackImg {
       width: 100%;
       height: 100%;
+      object-fit: cover;
     }
+  }
 
-    &:nth-child(1) {
-      top: -130px;
-      right: -100px;
-      transform: translateX(0);
-    }
-    &:nth-child(2) {
-      top: 28px;
-      left: 18px;
-      transform: translateX(0);
-    }
-    &:nth-child(3) {
-      bottom: 200px;
-      right: -220px;
-      transform: translateX(0);
-    }
-    &:nth-child(4) {
-      top: 230px;
-      left: 50px;
-      transform: translateX(0);
-    }
-    &:nth-child(5) {
-      bottom: -100px;
-      right: -100px;
-      transform: translateX(0);
-    }
+  .blackActive {
+    width: 0;
+    padding: 0;
+    margin-right: 0;
   }
 
   .white {
     width: 0;
     border-radius: 10px;
-    height: 560px;
-    padding: 45px 20px;
+    height: 590px;
+    padding: 45px 0px;
     background-color: #fafafa;
     color: var(--color-black);
     display: flex;
     overflow: hidden;
     transition: all 1s;
-  }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
 
-  .whiteImgWrapper {
-    position: relative;
-    width: 100%;
-  }
+    .whiteTextWrapper {
+      max-width: 45%;
+      background-color: #fafafa;
+    }
 
-  .whiteImg {
-    position: absolute;
-    overflow: hidden;
-    object-fit: cover;
-    border-radius: 10px;
+    .whiteTopText {
+      margin-bottom: 20px;
+    }
 
-    & img {
+    .whiteInnerTitle {
+      color: var(--color-black);
+      font-family: var(--font-soyuz);
+      font-weight: 700;
+      font-size: 41px;
+      line-height: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    .whiteImagesWrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .whiteImgWrapper {
+      border-radius: 10px;
+      overflow: hidden;
+      position: absolute;
+    }
+
+    .whiteImgFirst {
+      width: 150px;
+      height: 200px;
+      top: 40px;
+      right: 300px;
+    }
+    .whiteImgSecond {
+      width: 300px;
+      height: 200px;
+      right: 180px;
+      bottom: 40px;
+    }
+
+    .whiteImg {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-
-    &:nth-child(1) {
-      height: 243px;
-      width: 148px;
-      top: 0;
-      right: 50px;
-      transform: translateX(300px);
-      transition: all 0.8s ease-in-out;
-    }
-    &:nth-child(2) {
-      width: 250px;
-      height: 150px;
-      top: 300px;
-      right: -20px;
-      transform: translateX(300px);
-      transition: all 0.8s ease-in-out;
-    }
   }
 
-  .whiteInnerTitle {
-    color: var(--color-black);
-    font-family: var(--font-soyuz);
-    font-weight: 700;
-    font-size: 41px;
-    line-height: 1.2em;
-  }
-
-  .blackImgWrapper {
-    display: flex;
-    width: 200%; /* Для горизонтального скролла */
-    transform: translateX(0); /* Начальное положение */
-    transition: transform 0.3s ease;
-  }
-
-  .choiceWrapper {
-    display: flex;
-    position: relative;
-  }
-
-  .blackActive {
-    width: 0 !important;
-  }
   .whiteActive {
-    width: 100% !important;
+    width: 100%;
+    padding: 45px 20px;
   }
 }
 

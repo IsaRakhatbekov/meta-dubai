@@ -4,81 +4,55 @@ import styles from "./BestChoice.module.scss";
 
 import blackOne from "@/public/images/BestChoice/1.png";
 import blackTwo from "@/public/images/BestChoice/2.png";
-import blackFour from "@/public/images/BestChoice/4.png";
-import blackFive from "@/public/images/BestChoice/5.png";
+import blackThird from "@/public/images/BestChoice/3.png";
+import blackFourth from "@/public/images/BestChoice/4.png";
+import blackFifth from "@/public/images/BestChoice/5.png";
 
 import azat1 from "@/public/images/azat1.png";
 import azat2 from "@/public/images/azat2.png";
 
 export const BestChoice: React.FC = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
-  const [isScrollingDisabled, setIsScrollingDisabled] = useState(false);
-  const [classesAdded, setClassesAdded] = useState(false); // Флаг для предотвращения повторного добавления классов
+  const choiceRef = useRef<HTMLDivElement | null>(null);
+  const choiceWrapperRef = useRef<HTMLUListElement | null>(null);
 
   useEffect(() => {
-    const section = sectionRef.current;
+    const handleScroll = () => {
+      const choiceElement = choiceRef.current;
+      const choiceWrapperElement = choiceWrapperRef.current;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsScrollingDisabled(true);
-        } else {
-          setIsScrollingDisabled(false);
-          setClassesAdded(false); // Сбрасываем флаг, если секция больше не видна
-        }
-      },
-      { threshold: 0.9 }
-    );
+      if (!choiceElement || !choiceWrapperElement) return;
 
-    if (section) {
-      observer.observe(section);
-    }
+      const choiceRect = choiceElement.getBoundingClientRect();
+      const choiceWrapperRect = choiceWrapperElement.getBoundingClientRect();
 
-    return () => {
-      if (section) {
-        observer.unobserve(section);
-      }
-    };
-  }, []);
+      const choiceMiddle = choiceRect.top + choiceRect.height / 2;
+      const sectionMiddle =
+        choiceWrapperRect.top + choiceWrapperRect.height / 2;
 
-  useEffect(() => {
-    const handleScrollAttempt = () => {
-      if (isScrollingDisabled && !classesAdded) {
-        const blackBlock = document.querySelector(`.${styles.black}`);
-        const whiteBlock = document.querySelector(`.${styles.white}`);
-        blackBlock?.classList.add(styles.blackActive); // Добавляем классы
+      const blackBlock = choiceElement.querySelector(`.${styles.black}`);
+      const whiteBlock = choiceElement.querySelector(`.${styles.white}`);
+
+      if (sectionMiddle >= choiceMiddle) {
+        console.log("Дошел до 50% высоты блока choice");
+        blackBlock?.classList.add(styles.blackActive);
         whiteBlock?.classList.add(styles.whiteActive);
-        setClassesAdded(true); // Устанавливаем флаг, чтобы классы добавлялись только один раз
+      } else {
+        blackBlock?.classList.remove(styles.blackActive);
+        whiteBlock?.classList.remove(styles.whiteActive);
       }
     };
 
-    if (isScrollingDisabled) {
-      document.body.style.overflow = "hidden";
-      document.addEventListener("wheel", handleScrollAttempt, {
-        passive: true,
-      });
-      document.addEventListener("touchmove", handleScrollAttempt, {
-        passive: true,
-      });
-    } else {
-      document.body.style.overflow = "auto";
-      document.removeEventListener("wheel", handleScrollAttempt);
-      document.removeEventListener("touchmove", handleScrollAttempt);
-    }
-
-    // return () => {
-    //   document.body.style.overflow = "auto";
-    //   document.removeEventListener("wheel", handleScrollAttempt);
-    //   document.removeEventListener("touchmove", handleScrollAttempt);
-    // };
-  }, [isScrollingDisabled, classesAdded]);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
-    <section className={styles.choice} id="choice" ref={sectionRef}>
+    <section className={styles.choice} id="choice" ref={choiceRef}>
       <div className={`${styles.choiceContainer} container`}>
         <h2 className={styles.choiceTitle}>
           Почему это обучение — лучший выбор для моего будущего?
         </h2>
-        <ul className={styles.choiceWrapper}>
+        <ul className={styles.choiceWrapper} ref={choiceWrapperRef}>
           {/* Black Block */}
           <li className={styles.black}>
             <div className={styles.blackTextWrapper}>
@@ -87,7 +61,9 @@ export const BestChoice: React.FC = () => {
               </h3>
               <p className={styles.blackText}>
                 Dubai Knowledge Park — это не просто место для учебы, это центр
-                возможностей на мировом уровне.
+                возможностей на мировом уровне Современные учебные аудитории,
+                доступ к новейшим технологиям и вдохновляющая атмосфера делают
+                наше обучение лучшим местом для получения знаний
               </p>
               <ul className={styles.blackList}>
                 <li className={styles.blackItem}>
@@ -104,11 +80,32 @@ export const BestChoice: React.FC = () => {
                 </li>
               </ul>
             </div>
-            <div className={styles.blackImgWrapper}>
-              <Image src={blackOne} alt="Black Block Image 1" />
-              <Image src={blackTwo} alt="Black Block Image 2" />
-              <Image src={blackFour} alt="Black Block Image 4" />
-              <Image src={blackFive} alt="Black Block Image 5" />
+            <div className={styles.blackImagesWrapper}>
+              <div
+                className={`${styles.blackImgFirst} ${styles.blackImgWrapper}`}
+              >
+                <Image className={styles.blackImg} src={blackOne} alt="" />
+              </div>
+              <div
+                className={`${styles.blackImgSecond} ${styles.blackImgWrapper}`}
+              >
+                <Image className={styles.blackImg} src={blackTwo} alt="" />
+              </div>
+              <div
+                className={`${styles.blackImgThird} ${styles.blackImgWrapper}`}
+              >
+                <Image className={styles.blackImg} src={blackThird} alt="" />
+              </div>
+              <div
+                className={`${styles.blackImgFourth} ${styles.blackImgWrapper}`}
+              >
+                <Image className={styles.blackImg} src={blackFourth} alt="" />
+              </div>
+              <div
+                className={`${styles.blackImgFifth} ${styles.blackImgWrapper}`}
+              >
+                <Image className={styles.blackImg} src={blackFifth} alt="" />
+              </div>
             </div>
           </li>
 
@@ -118,7 +115,7 @@ export const BestChoice: React.FC = () => {
               <h3 className={styles.whiteInnerTitle}>
                 Тот, кто знает путь к результату
               </h3>
-              <p className={styles.whiteText}>
+              <p className={`${styles.whiteText} ${styles.whiteTopText}`}>
                 Азат Байсынов — автор курса, основанного на его опыте в
                 международных IT-компаниях. Он разработал подход, помогающий
                 освоить ключевые навыки в IT.
@@ -140,9 +137,17 @@ export const BestChoice: React.FC = () => {
                 </li>
               </ul>
             </div>
-            <div className={styles.whiteImgWrapper}>
-              <Image src={azat1} alt="White Block Image 1" />
-              <Image src={azat2} alt="White Block Image 2" />
+            <div className={styles.whiteImagesWrapper}>
+              <div
+                className={`${styles.whiteImgFirst} ${styles.whiteImgWrapper}`}
+              >
+                <Image className={styles.whiteImg} src={azat1} alt="" />
+              </div>
+              <div
+                className={`${styles.whiteImgSecond} ${styles.whiteImgWrapper}`}
+              >
+                <Image className={styles.whiteImg} src={azat2} alt="" />
+              </div>
             </div>
           </li>
         </ul>
