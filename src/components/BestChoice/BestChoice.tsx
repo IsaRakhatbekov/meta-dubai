@@ -10,6 +10,8 @@ import blackFifth from "@/public/images/BestChoice/5.png";
 
 import azat1 from "@/public/images/azat1.png";
 import azat2 from "@/public/images/azat2.png";
+import azat3 from "@/public/images/BestChoice/white3.png";
+import azat4 from "@/public/images/BestChoice/white4.png";
 
 export const BestChoice: React.FC = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -147,6 +149,16 @@ export const BestChoice: React.FC = () => {
                 className={`${styles.whiteImgSecond} ${styles.whiteImgWrapper}`}
               >
                 <Image className={styles.whiteImg} src={azat2} alt="" />
+              </div>
+              <div
+                className={`${styles.whiteImgThird} ${styles.whiteImgWrapper}`}
+              >
+                <Image className={styles.whiteImg} src={azat3} alt="" />
+              </div>
+              <div
+                className={`${styles.whiteImgFourth} ${styles.whiteImgWrapper}`}
+              >
+                <Image className={styles.whiteImg} src={azat4} alt="" />
               </div>
             </div>
           </li>

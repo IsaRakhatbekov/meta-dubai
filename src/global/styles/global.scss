@@ -50,6 +50,7 @@ body {
 
 a,
 button {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   outline: transparent;
   border: transparent;
 
@@ -61,4 +62,8 @@ button {
     outline: 1px solid var(--color-blue);
     border: 1px solid var(--color-blue);
   }
+}
+
+label {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }

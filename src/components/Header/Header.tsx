@@ -15,26 +15,17 @@ export const Header = () => {
       setIsScrolled(false);
     }
   };
-
   const handleCloseMenuMobile = () => {
     setBurger(false);
   };
-
   const handleClickBurgerMenu = () => {
     setBurger((prev) => !prev);
   };
-
-  // Проверяем положение при загрузке страницы
   useEffect(() => {
-    // Выполняем проверку сразу после монтирования
     if (window.scrollY > 10) {
       setIsScrolled(true);
     }
-
-    // Добавляем слушатель скролла
     window.addEventListener("scroll", handleScroll);
-
-    // Очистка при размонтировании
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };

@@ -1,85 +1,5 @@
-// .hero {
-//   background-color: #ccc;
-//   width: 95%;
-//   height: 100vh;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   margin: 40px auto 0;
-//   border-radius: 90px;
-
-//   .heroContainer {
-//     height: 100%;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//   }
-
-//   .heroWrapper {
-//     position: absolute;
-//     text-align: center;
-//   }
-
-//   .heroMainTitle {
-//     font-weight: 700;
-//     font-size: 196px;
-//     line-height: 1em;
-//     letter-spacing: -0.02em;
-//     color: #fff;
-//     font-family: var(--font-soyuz), sans-serif;
-//     position: relative;
-//     z-index: 1;
-
-//     &::before {
-//       content: "";
-//       position: absolute;
-//       width: 100%;
-//       max-width: 100%;
-//       height: 50px;
-//       left: 0;
-//       bottom: 10px;
-//       z-index: -1;
-//       background: url("../../../public/images/heroTitleLine.png") center/contain
-//         no-repeat;
-//     }
-//   }
-
-//   .heroSubtitle {
-//     font-weight: 700;
-//     font-size: 72px;
-//     line-height: 1.3em;
-//     color: #fff;
-//     margin-bottom: 25px;
-//     font-family: var(--font-soyuz), sans-serif;
-
-//     & span {
-//       color: var(--color-orange);
-//     }
-//   }
-
-//   .heroText {
-//     text-align: center;
-//     color: #fff;
-//     margin-bottom: 25px;
-//     max-width: 865px;
-//     margin: 0 auto 40px;
-//   }
-
-//   .heroLink {
-//     padding: 20px 30px 16px 30px;
-//     font-weight: 700;
-//     font-size: 16px;
-//     line-height: 1em;
-//     text-transform: uppercase;
-//     color: #fff;
-//     border-radius: 10px;
-//     font-family: var(--font-mabryPro), sans-serif;
-//     background-color: var(--color-blue);
-//   }
-// }
-
 .hero {
-  position: relative; /* Для размещения текста поверх видео */
+  position: relative;
   background-color: #ccc;
   width: 95%;
   height: 100vh;
@@ -88,7 +8,7 @@
   justify-content: center;
   margin: 40px auto 0;
   border-radius: 90px;
-  overflow: hidden; /* Скрыть все, что выходит за границы блока */
+  overflow: hidden;
 
   &::after {
     content: "";
@@ -106,14 +26,14 @@
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Видео заполняет весь блок */
-    z-index: 0; /* Отправить видео на задний план */
+    object-fit: cover;
+    z-index: 0;
   }
 
   .heroWrapper {
-    position: relative; /* Относительное позиционирование для наложения текста */
+    position: relative;
     text-align: center;
-    z-index: 1; /* Текст выше видео */
+    z-index: 1;
   }
 
   .heroMainTitle {
@@ -149,7 +69,6 @@
     font-family: var(--font-soyuz), sans-serif;
 
     & span {
-      // color: var(--color-orange);
       color: #f7b74a;
     }
   }
@@ -160,18 +79,6 @@
     margin-bottom: 25px;
     max-width: 865px;
     margin: 0 auto 40px;
-  }
-
-  .heroLink {
-    padding: 20px 30px 16px 30px;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1em;
-    text-transform: uppercase;
-    color: #fff;
-    border-radius: 10px;
-    font-family: var(--font-mabryPro), sans-serif;
-    background-color: var(--color-blue);
   }
 }
 
@@ -243,11 +150,6 @@
     }
     .heroText {
       max-width: 550px;
-    }
-    .heroLink {
-      padding: 15px 20px 12px 20px;
-      font-weight: 400;
-      font-size: 14px;
     }
   }
 }

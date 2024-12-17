@@ -4,19 +4,6 @@ import styles from "./AllInclusive.module.scss";
 export const AllInclusive = () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [isAnimated, setIsAnimated] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 500);
-    };
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -77,41 +64,29 @@ export const AllInclusive = () => {
             <div className={styles.list}>
               <div className={styles.left}>
                 <div className={styles.item}>
-                  <span className={isMobile ? styles.first : ""}>
-                    {isMobile ? "1" : "0.1"}
-                  </span>
+                  <span className={styles.first}>1</span>
                   <p className={styles.text}>питание</p>
                 </div>
                 <div className={styles.item}>
-                  <span className={isMobile ? styles.second : ""}>
-                    {isMobile ? "2" : "0.2"}
-                  </span>
+                  <span className={styles.second}>2</span>
                   <p className={styles.text}>проживание</p>
                 </div>
                 <div className={styles.item}>
-                  <span className={isMobile ? styles.third : ""}>
-                    {isMobile ? "3" : "0.3"}
-                  </span>
+                  <span className={styles.third}>3</span>
                   <p className={styles.text}>медстраховка</p>
                 </div>
               </div>
               <div className={styles.right}>
                 <div className={styles.item}>
-                  <span className={isMobile ? styles.fourth : ""}>
-                    {isMobile ? "4" : "0.4"}
-                  </span>
+                  <span className={styles.fourth}>4</span>
                   <p className={styles.text}>виза</p>
                 </div>
                 <div className={styles.item}>
-                  <span className={isMobile ? styles.fifth : ""}>
-                    {isMobile ? "5" : "0.5"}
-                  </span>
+                  <span className={styles.fifth}>5</span>
                   <p className={styles.text}>каршеринг</p>
                 </div>
                 <div className={styles.item}>
-                  <span className={isMobile ? styles.sixth : ""}>
-                    {isMobile ? "6" : "0.6"}
-                  </span>
+                  <span className={styles.sixth}>6</span>
                   <p className={styles.text}>экскурсии</p>
                 </div>
               </div>

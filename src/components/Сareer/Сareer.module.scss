@@ -116,6 +116,7 @@
 
 @media (max-width: 991px) {
   .career {
+    padding: 100px 0;
     .block {
       padding: 20px 0;
     }
@@ -124,6 +125,7 @@
 
 @media (max-width: 768px) {
   .career {
+    padding: 65px 0;
     .careerContent {
       max-width: 100%;
     }
@@ -141,8 +143,13 @@
 
 @media (max-width: 500px) {
   .career {
+    padding: 40px 0;
     .innerTitle {
       font-size: 24px;
+    }
+
+    .careerTitle {
+      line-height: 1;
     }
   }
 }

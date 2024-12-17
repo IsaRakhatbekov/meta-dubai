@@ -199,14 +199,25 @@
 }
 
 .customCheckbox .checkbox {
+  // border: 1px solid #d0d5dd;
+  // border-radius: 6px;
+  // width: 20px;
+  // height: 20px;
+  // position: relative;
+  // margin-right: 15px;
+  // margin-top: 5px;
+  // transition: background-color 0.3s, border-color 0.3s;
+  position: relative;
   border: 1px solid #d0d5dd;
   border-radius: 6px;
-  width: 20px;
-  height: 20px;
-  position: relative;
+  width: 20px; /* Фиксированная ширина */
+  height: 20px; /* Фиксированная высота */
+  min-width: 20px; /* Защита от уменьшения */
+  min-height: 20px;
   margin-right: 15px;
   margin-top: 5px;
   transition: background-color 0.3s, border-color 0.3s;
+  flex-shrink: 0; /* Предотвращает сжатие в flex-контейнере */
 }
 
 .customCheckbox input:checked + .checkbox {
@@ -217,15 +228,12 @@
 .customCheckbox .checkbox::after {
   content: "";
   position: absolute;
-  width: 15px;
-  height: 15px;
-  left: 1.6px;
-  top: 1.5px;
+  width: 12px; /* Размер галочки */
+  height: 12px;
+  top: 50%; /* Центрирование по вертикали */
+  left: 50%; /* Центрирование по горизонтали */
+  transform: translate(-50%, -50%); /* Смещение в центр */
   background: url("../../../public/images/arrow.svg") no-repeat center/contain;
-}
-
-.customCheckbox input:checked + .checkbox::after {
-  // transform: translate(-50%, -50%) scale(1);
 }
 
 @media (max-width: 1400px) {
@@ -275,6 +283,8 @@
 
 @media (max-width: 991px) {
   .test {
+    padding: 120px 0 120px 0;
+
     .fromWrapper {
       &::after {
         content: "";
@@ -321,6 +331,12 @@
 
 @media (max-width: 500px) {
   .test {
+    padding: 100px 0;
+
+    .testSubtitle {
+      margin-bottom: 200px;
+    }
+
     .fromWrapper {
       &::after {
         content: "";

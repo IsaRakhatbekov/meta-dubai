@@ -4,7 +4,7 @@ import PhoneInput from "react-phone-input-2";
 import styles from "./Form.module.scss";
 
 type FormData = {
-  checkboxes: string[];
+  questions: string[];
   [key: string]: string | string[];
 };
 
@@ -20,18 +20,18 @@ export const Form: React.FC = () => {
   const [countryName, setCountryName] = useState("");
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault(); // Предотвращаем стандартное поведение формы
+    event.preventDefault();
     const section = sectionRef.current;
     if (!section) return;
 
     const inputs = section.querySelectorAll<HTMLInputElement>("input");
-    const formData: FormData = { checkboxes: [] };
+    const formData: FormData = { questions: [] };
 
     inputs.forEach((input) => {
       if (input.type === "checkbox") {
         const label = input.parentElement?.textContent?.trim(); // Получаем текст метки
         if (label && input.checked) {
-          formData.checkboxes.push(label);
+          formData.questions.push(label);
         }
       } else if (input.type === "text") {
         const label = input.previousSibling?.textContent?.trim(); // Получаем текст лейбла

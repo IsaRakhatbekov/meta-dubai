@@ -30,7 +30,7 @@
   }
 
   .item {
-    gap: 10px;
+    gap: 17px;
     display: flex;
     align-items: center;
 
@@ -45,58 +45,14 @@
         content: "";
         position: absolute;
         top: -5px;
-        left: -6px;
-        width: 50px;
+        left: -14px;
+        width: 40px;
         height: 40px;
         background: url("../../../public/images/allIn.png") no-repeat
           center/contain;
       }
     }
   }
-
-  // .wrapper {
-  //   position: relative;
-  // }
-
-  // .images {
-  //   position: absolute;
-  //   border-radius: 11px;
-  //   width: 399px;
-  //   height: 249px;
-  //   overflow: hidden;
-  //   z-index: 10;
-
-  //   &:nth-child(1) {
-  //     background-color: #ccc;
-  //     top: -60%;
-  //     left: -10%;
-  //   }
-  //   &:nth-child(2) {
-  //     background-color: lightcoral;
-  //     top: -60%;
-  //     left: 25%;
-  //   }
-  //   &:nth-child(3) {
-  //     background-color: orange;
-  //     top: -60%;
-  //     right: -10%;
-  //   }
-  //   &:nth-child(4) {
-  //     background-color: green;
-  //     bottom: -60%;
-  //     right: -10%;
-  //   }
-  //   &:nth-child(5) {
-  //     background-color: red;
-  //     bottom: -60%;
-  //     right: 30%;
-  //   }
-  //   &:nth-child(6) {
-  //     bottom: -60%;
-  //     left: -10%;
-  //     background-color: blue;
-  //   }
-  // }
 
   .subtitle {
     font-family: var(--font-adventure);
@@ -304,13 +260,14 @@
     }
 
     .item {
+      gap: 12px;
       & span {
         font-size: 20px;
 
         &::after {
           top: -4px;
-          left: -4px;
-          width: 37px;
+          left: -9px;
+          width: 30px;
           height: 32px;
         }
       }

@@ -11,10 +11,7 @@ export const Hero = () => {
         playsInline
         preload="auto"
         src="/images/heroVideo.mp4"
-      >
-        {/* <source src="/images/heroVideo.mp4" type="video/mp4" /> */}
-        {/* <source src="/images/heroVideo.webm" type="video/webm" /> */}
-      </video>
+      ></video>
       <div className={`${styles.heroContainer} container`}>
         <div className={styles.heroWrapper}>
           <h1 className={styles.heroMainTitle}>Твоя KарьEра</h1>
@@ -25,9 +22,6 @@ export const Hero = () => {
             Открой мир программирования в Дубае! Освой востребованные навыки
             вместе с опытными менторами и сделай шаг к успешной карьере в IT.
           </p>
-          <a className={styles.heroLink} href="#">
-            Измени свою жизнь
-          </a>
         </div>
       </div>
     </section>

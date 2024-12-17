@@ -494,6 +494,14 @@
       font-size: 24px;
     }
 
+    .mainTitle {
+      &::after {
+        height: 160px;
+        margin: 30px auto 223px;
+        margin: 0 auto;
+      }
+    }
+
     .minelistLeft {
       width: 100%;
       max-width: 380px;
@@ -590,8 +598,7 @@
   .mine {
     .mainTitle {
       &::after {
-        left: -117px;
-        bottom: -20px;
+        bottom: -30px;
       }
     }
 

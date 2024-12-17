@@ -7,7 +7,7 @@
     line-height: 115%;
     color: var(--color-dark-gray);
     max-width: 809px;
-    font-size: calc(30px + 42 * (100vw / 1440));
+    font-size: calc(18px + 42 * (100vw / 1440));
   }
   .receiveWrapper {
     gap: 50px;
@@ -83,7 +83,7 @@
     font-family: var(--font-adventure);
     font-weight: 400;
     font-size: 61px;
-    font-size: calc(30px + 31 * (100vw / 1440));
+    font-size: calc(20px + 31 * (100vw / 1440));
     line-height: 131%;
     color: #fff;
   }
@@ -94,7 +94,7 @@
     font-size: 48px;
     line-height: 120%;
     color: #fff;
-    font-size: calc(24px + 14 * (100vw / 1440));
+    font-size: calc(18px + 14 * (100vw / 1440));
 
     & span {
       color: var(--color-orange);
@@ -114,7 +114,7 @@
     left: 0;
     bottom: 0;
     background-color: #fff; // Цвет наложения
-    transition: height 3s ease-in-out; // Анимация уменьшения высоты
+    transition: height 2s ease-in-out; // Анимация уменьшения высоты
   }
 }
 
@@ -157,6 +157,10 @@
     .dubaiTower {
       height: 800px;
     }
+
+    .receiveBottom {
+      padding: 100px 0;
+    }
   }
 }
 
@@ -182,8 +186,12 @@
 
 @media (max-width: 500px) {
   .receive {
+    .receiveText {
+      font-size: 20px;
+    }
+
     .receiveBottom {
-      padding: 100px 0;
+      padding: 60px 0;
     }
   }
 }

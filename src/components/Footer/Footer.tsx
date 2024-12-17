@@ -38,10 +38,10 @@ export const Footer = () => {
             </li>
             <li className={styles.item}>
               <h4 className={styles.title}>Контакты</h4>
-              <a className={`${styles.phone} ${styles.text}`} href="">
+              <a className={`${styles.phone} ${styles.text}`} href="#">
                 +996 555 888 999
               </a>
-              <a className={`${styles.phone} ${styles.text}`} href="">
+              <a className={`${styles.phone} ${styles.text}`} href="#">
                 +996 555 888 999
               </a>
             </li>

@@ -13,7 +13,6 @@ export const Receive = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          console.log("Scrolled to <Receive /> section");
         } else {
           setIsVisible(false);
         }
